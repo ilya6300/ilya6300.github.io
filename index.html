@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Выбор героя начало -->
+      <div id="select-heroes-box-id">
+        <h1>Выберете героя</h1>
+        <div id="select-heroes-id">
+          <div id="select-card-assassin" class="card-hero">
+            <div class="hero-hp-box">
+              <div>Здоровье</div>
+              <div class="hp-box">
+                <div id="hp-hero-dinamic"></div>
+                <div id="hp-hero-score">80</div>
+              </div>
+            </div>
+            <div class="hero-class">Асассин</div>
+            <div class="damage-stamina-bar">
+              <div class="damage-box">
+                <div>Атака</div>
+                <div class="info-stat-score">11</div>
+              </div>
+              <div class="stamina-box">
+                <div>Мана</div>
+                <div class="info-stat-score"><div id="stamina-hero-score">9</div></div>
+              </div>
+            </div>
+            <div class="info-hero">
+              <p>Сильная базовая атака</p>
+              <p>Сильная особая атака, расходует 3 маны</p>
+              <!-- <p>Много Маны и она восстанавливается быстрее</p> -->
+            </div>
+          </div>
+
+          <div id="select-card-knight" class="card-hero">
+            <div class="hero-hp-box">
+              <div>Здоровье</div>
+              <div class="hp-box">
+                <div id="hp-hero-dinamic"></div>
+                <div id="hp-hero-score">110</div>
+              </div>
+            </div>
+            <div class="hero-class">Рыцарь</div>
+            <div class="damage-stamina-bar">
+              <div class="damage-box">
+                <div>Атака</div>
+                <div class="info-stat-score">9</div>
+              </div>
+              <div class="stamina-box">
+                <div>Мана</div>
+                <div class="info-stat-score"><div id="stamina-hero-score">6</div></div>
+              </div>
+            </div>
+            <div class="info-hero">
+              <p>Много здоровья</p>
+              <p>Особая атака расходует 2 маны</p>
+              <p>Способен блокировать часть урона</p>
+            </div>
+          </div>
+
+          <div id="select-card-witch" class="card-hero">
+            <div class="hero-hp-box">
+              <div>Здоровье</div>
+              <div class="hp-box">
+                <div id="hp-hero-dinamic"></div>
+                <div id="hp-hero-score">70</div>
+              </div>
+            </div>
+            <div class="hero-class">Колдун</div>
+            <div class="damage-stamina-bar">
+              <div class="damage-box">
+                <div>Атака</div>
+                <div class="info-stat-score">10</div>
+              </div>
+              <div class="stamina-box">
+                <div>Мана</div>
+                <div class="info-stat-score"><div id="stamina-hero-score">6</div></div>
+              </div>
+            </div>
+            <div class="info-hero">
+              <p>Сильная базовая атака</p>
+              <p>Сильная особая атака, расходует 3 маны</p>
+              <p>Поглощает умение убитого врага сильным ударом</p>
+            </div>
+          </div>
+
+          <div id="select-card-ser" class="card-hero">
+            <div class="hero-hp-box">
+              <div>Здоровье</div>
+              <div class="hp-box">
+                <div id="hp-hero-dinamic"></div>
+                <div id="hp-hero-score">30</div>
+              </div>
+            </div>
+            <div class="hero-class">Серёга</div>
+            <div class="damage-stamina-bar">
+              <div class="damage-box">
+                <div>Атака</div>
+                <div class="info-stat-score">10</div>
+              </div>
+              <div class="stamina-box">
+                <div>Мана</div>
+                <div class="info-stat-score"><div id="stamina-hero-score">99</div></div>
+              </div>
+            </div>
+            <div class="info-hero">
+              <p class="sergey-p">Базовая атака, как у настоящего пацана</p>
+              <p class="sergey-p">Способен найти баги где угодно</p>
+              <p class="sergey-p">В таверне его все знают и он ходит как к себе домой, нет лимита попосещению</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Выбор героя конец -->
+      <!-- Поле боя начало -->
+      <div id="battle-conteiner" class="">
+        <div class="vs">VS</div>
+        <div class="deck-container">
+            <div id="basic-attack" class="card-skill-style">
+                <h2>Базовая атака</h2>
+                <div class="battle-deck-attack-text">Урон</div><div class="battle-deck-attack" id="basic-attack-text"></div>
+                <p>Обычный удар, восстанавливает 2 единицы маны</p>
+            </div>
+            <div id="strong-attack" class="card-skill-style">
+                <h2>Сильная атака</h2>
+                <div class="battle-deck-attack-text">Урон</div><div class="battle-deck-attack" id="strong-attack-text"></div>
+                <p>Нанасит критический удар врагу, требуется 2 Маны</p>
+            </div>
+            <div id="skill-khight" class="card-skill-style">
+                <h2>Щитоносец</h2>
+                <p>Поглощает большую часть урона (входящий урон 3 единицы), восстанавливает 1 единицу маны</p>
+            </div>
+            <div id="skill-bag-system" class="card-skill-style">
+              <h2>Баг в системе</h2>
+              <p>Уничтожает систему, требуется невероятное количество ума</p>
+          </div>
+          <div id="skill-recovery-mana" class="card-skill-style">
+            <h2>Читерство мастера</h2>
+            <p>Сбегать в магазин за энергетиком</p>
+        </div>
+        </div>
+      </div>
+      <!-- Поле боя конец -->
+      <div class="select-enemy-container">
+        <!-- Гоблин начало -->
+        <div id="card-enemy-goblin" class="card-enemy">
+            <h2 id="score-goblin">Гоблин</h2>
+            <p>Слабый враг</p>
+            <div id="goblin-lose"></div>
+            <div class="card-enemy-atack-text">Атака</div><div class="card-enemy-atack">6</div>
+            <div class="card-enemy-hp-bar">
+                <div class="card-enemy-hp-text">Здоровье</div>
+                <div class="hp-enemy-box">
+                <div id="hp-enemy-goblin"></div>
+                <div id="hp-enemy-score-goblin">65</div>
+            </div>
+            </div>
+        </div>
+        <!-- Гоблин конец -->
+        <!-- Скелет начало -->
+        <div id="card-enemy-skeleton" class="card-enemy">
+            <h2 id="score-skeleton">Скелет</h2>
+            <p>Поглощает часть урона</p>
+            <div id="skeleton-lose"></div>
+            <div class="card-enemy-atack-text">Атака</div><div class="card-enemy-atack">7</div>
+            <div class="card-enemy-hp-bar">
+                <div class="card-enemy-hp-text">Здоровье</div>
+                <div class="hp-enemy-box">
+                <div id="hp-enemy-skeleton"></div>
+                <div id="hp-enemy-score-skeleton">55</div>
+            </div>
+            </div>
+        </div>
+        <!-- Скелет конец -->
+        <!-- Вампир начало -->
+        <div id="card-enemy-vampir" class="card-enemy">
+            <h2 id="score-vampir">Вампир</h2>
+            <p>Восстанавливает часть здоровья при атаке</p>
+            <div id="vampir-lose"></div>
+            <div class="card-enemy-atack-text">Атака</div><div class="card-enemy-atack">10</div>
+            <div class="card-enemy-hp-bar">
+                <div class="card-enemy-hp-text">Здоровье</div>
+                <div class="hp-enemy-box">
+                <div id="hp-enemy-vampir"></div>
+                <div id="hp-enemy-score-vampir">120</div>
+            </div>
+            </div>
+        </div>
+        <!-- Вампир конец -->
+      </div>
+      <!-- Поле твоего героя и таверны начало -->
+      <div class="heroe-bar-container">
+        <div class="heroe-container">
+            <div id="assassin" class="card-hero">
+                <div class="hero-hp-box">
+                  <div>Здоровье</div>
+                  <div class="hp-box">
+                    <div id="hp-hero-dinamic-assassin"></div>
+                    <div id="hp-hero-score-assassin">10</div>
+                  </div>
+                </div>
+                <div class="hero-class">Асассин</div>
+                <div class="damage-stamina-bar">
+                  <div class="damage-box">
+                    <div>Атака</div>
+                    <div class="info-stat-score" id="basic-damage-hero-stat-assassin">0</div>
+                  </div>
+                  <div class="stamina-box">
+                    <div>Мана</div>
+                    <div class="info-stat-score" id="stamina-hero-score-assassin"></div>
+                  </div>
+                </div>
+                <div class="info-hero">
+                  <p>Сильная базовая атака</p>
+                  <p>Сильная особая атака, расходует 3 маны</p>
+                  <!-- <p>Много Мана и она восстанавливается быстрее</p> -->
+                </div>
+              </div>
+    
+              <div id="knight" class="card-hero">
+                <div class="hero-hp-box">
+                  <div>Здоровье</div>
+                  <div class="hp-box">
+                    <div id="hp-hero-dinamic-knight"></div>
+                    <div id="hp-hero-score-knight">110</div>
+                  </div>
+                </div>
+                <div class="hero-class">Рыцарь</div>
+                <div class="damage-stamina-bar">
+                  <div class="damage-box">
+                    <div>Атака</div>
+                    <div class="info-stat-score" id="basic-damage-hero-stat-knight">9</div>
+                  </div>
+                  <div class="stamina-box">
+                    <div>Мана</div>
+                    <div class="info-stat-score"><div id="stamina-hero-score-knight">6</div></div>
+                  </div>
+                </div>
+                <div class="info-hero">
+                  <p>Много здоровья</p>
+                  <p>Способен блокировать часть урона</p>
+                </div>
+              </div>
+
+              <div id="witch" class="card-hero">
+                <div class="hero-hp-box">
+                  <div>Здоровье</div>
+                  <div class="hp-box">
+                    <div id="hp-hero-dinamic-witch"></div>
+                    <div id="hp-hero-score-witch">30</div>
+                  </div>
+                </div>
+                <div class="hero-class">Колдун</div>
+                <div class="damage-stamina-bar">
+                  <div class="damage-box">
+                    <div>Атака</div>
+                    <div class="info-stat-score" id="basic-damage-hero-stat-witch">10</div>
+                  </div>
+                  <div class="stamina-box">
+                    <div>Мана</div>
+                    <div class="info-stat-score"><div id="stamina-hero-score-witch">99</div></div>
+                  </div>
+                </div>
+                <div class="info-hero">
+                  <p>Сильная базовая атака</p>
+                  <p>Сильная особая атака, расходует 3 маны</p>
+                  <p>Поглощает умение убитого врага сильным ударом</p>
+                </div>
+              </div>
+
+              <div id="ser" class="card-hero">
+                <div class="hero-hp-box">
+                  <div>Здоровье</div>
+                  <div class="hp-box">
+                    <div id="hp-hero-dinamic-ser"></div>
+                    <div id="hp-hero-score-ser">30</div>
+                  </div>
+                </div>
+                <div class="hero-class">Серёга</div>
+                <div class="damage-stamina-bar">
+                  <div class="damage-box">
+                    <div>Атака</div>
+                    <div class="info-stat-score" id="basic-damage-hero-stat-ser">10</div>
+                  </div>
+                  <div class="stamina-box">
+                    <div>Мана</div>
+                    <div class="info-stat-score"><div id="stamina-hero-score-ser">99</div></div>
+                  </div>
+                </div>
+                <div class="info-hero">
+                  <p class="sergey-p">Базовая атака, как у настоящего пацана</p>
+                  <p class="sergey-p">Способен найти баги где угодно</p>
+                  <p class="sergey-p">В таверне его все знают и он ходит как к себе домой, нет лимита попосещению</p>
+                </div>
+              </div>
+
+        </div>
+        <div class="tavern-container">
+            <div id="tavern-card">
+                <h2>Таверна</h2>
+                <p>Восстанавливает 35 здоровья герою за посещение.</p>
+                <p>Можно посетить таверну:</p>
+                <div id="tavern-card-charge"></div>
+            </div>
+        </div>
+        <div id="damage-container">
+          <div id="damage-container-hero"></div>
+          <div id="damage-container-enemy"></div>
+        </div>
+        <div class="upHill-container">
+          <div id="up-hill-hero"></div>
+          <div id="up-hill-enemy"></div>
+        </div>
+      </div>
+      <!-- Поле твоего героя и таверны конец -->
+    </div>
+    <div id="loser"><h1>Ты проиграл!</h1></div>
+    <div id="you-winer"><div class="ups"><h1>Поздравляю! Ты выйграл!</h1><h2>И проебался на работе.</h2><h6>О данном инциденте уже сообщили Александру Николаевичу!</h6></div></div>
+<div id="beer"><img src="https://165dc6ae-1b27-4856-8ca7-b1edf208847c.selcdn.net/images/original/materials/sections/164916/164916.png?1661250793" alt=""></div>
+<script src="/js/index.js"></script>
+</body>
+</html>
+
